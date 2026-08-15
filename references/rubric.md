@@ -1,10 +1,10 @@
 # Scoring rubric
 
-Score 1–5 per group, on **deep tasks only** (Nhóm 5 governs which those are).
+Score 1–5 per group, on **deep tasks only** (Group 5 governs which those are).
 Judge by reading; the counts below are anchors, not formulas. When a sample is
 small (<8 deep tasks), give a range instead of a point score and say why.
 
-## Nhóm 1 — Chất lượng đầu vào (Input Quality)
+## Group 1 — Input Quality
 
 Look at the first user message of each deep-task session for: stated goal,
 constraints, desired format/length, audience or background, a reference
@@ -12,7 +12,7 @@ example, pasted material (code, error, link, doc).
 
 | Score | What it looks like |
 |---|---|
-| 1 | Mostly 3–8 vague words. "sửa code này", "viết email". No goal, no context. AI has to guess every time. |
+| 1 | Mostly 3–8 vague words. "fix this code", "write an email". No goal, no context. AI has to guess every time. |
 | 2 | One line of what, never why. Context appears only when the AI asks for it. |
 | 3 | Task is clear and usually scoped, but goal, audience, or output format is left implicit. Occasional good prompt. |
 | 4 | Most deep tasks open with goal + constraints, plus relevant material pasted in. Format stated when it matters. |
@@ -21,7 +21,7 @@ example, pasted material (code, error, link, doc).
 Do not reward length by itself. A long prompt that is mostly pasted logs with
 no stated goal is a 2, not a 4.
 
-## Nhóm 2 — Tương tác & lặp (Interaction Depth)
+## Group 2 — Interaction Depth
 
 | Score | What it looks like |
 |---|---|
@@ -33,9 +33,9 @@ no stated goal is a 2, not a 4.
 
 Flag separately (not a low score, a different finding): sessions with many
 turns caused by the AI repeatedly missing the target. Cause is a thin opening
-prompt — that belongs to Nhóm 1.
+prompt — that belongs to Group 1.
 
-## Nhóm 3 — Xác minh & tư duy phản biện (Verification)
+## Group 3 — Verification
 
 Evidence of checking, all visible in the dialogue: pasting an error or a
 wrong result back, asking for a source, asking for the change to be tested,
@@ -53,7 +53,7 @@ An almost-zero correction rate over many sessions is a finding worth naming:
 either the tasks were trivial or checking is not happening. Decide which by
 reading, and say which.
 
-## Nhóm 4 — Học & chuyển giao kỹ năng (Skill Transfer)
+## Group 4 — Skill Transfer
 
 | Score | What it looks like |
 |---|---|
@@ -66,7 +66,7 @@ reading, and say which.
 The comparison to make: earliest sessions on a topic versus the most recent
 ones on that same topic. Quote both.
 
-## Nhóm 5 — Phù hợp mục đích (Context Fit)
+## Group 5 — Context Fit
 
 This scores whether the user matches effort to task type.
 

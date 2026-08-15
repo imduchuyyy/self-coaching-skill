@@ -47,20 +47,20 @@ longest, and a spread in between.
 
 What to extract per session as you read:
 
-- the first prompt, verbatim (this is the main evidence for Nhóm 1)
+- the first prompt, verbatim (this is the main evidence for Group 1)
 - how many human turns followed, and what kind they were: refinement,
   challenge, correction, or just "ok, next"
 - whether the user ever checked the output — pasted an error or wrong result
   back, asked for a source, asked for it to be tested, contradicted the AI
   with a fact
 - whether the user asked *why/how*, or only *what*
-- what type of task it was (see Nhóm 5)
+- what type of task it was (see Group 5)
 
 Read the AI's replies too, not only the prompts. A reply full of clarifying
 questions means the prompt was thin; a reply the user accepts verbatim and
-never returns to is the main evidence for Nhóm 3.
+never returns to is the main evidence for Group 3.
 
-### 3. Classify before you score (Nhóm 5 first)
+### 3. Classify before you score (Group 5 first)
 
 Tag each session:
 
@@ -69,7 +69,7 @@ Tag each session:
 - **Deep task** — design decisions, strategy, learning a concept, anything
   touching production, anything with trade-offs.
 
-Score Nhóm 1–4 on the deep tasks only. Never mark a quick task down for
+Score Group 1–4 on the deep tasks only. Never mark a quick task down for
 being one turn — that is the right behaviour, and treating it as shallow is
 the most common way this assessment goes wrong.
 
@@ -96,50 +96,49 @@ Follow `references/report_template.md`. Rules:
   actual weak prompts and show a rewritten version side by side.
 - **Three changes maximum**, each with the signal that should move next time.
 - **Coach, don't grade.** Neutral, specific, non-moralising.
-- **Mirror the user's language.** If their history and request are in
-  Vietnamese, write the report in Vietnamese.
+- **Mirror the user's language.** This skill is written in English, but the
+  report is not: write it in whatever language the user's own prompts are
+  in, and quote their words untranslated.
 
 Interventions per weakness are in `references/playbook.md`.
 
 ## The five metric families
 
-**Nhóm 1 — Chất lượng đầu vào (Input Quality).** Does the request state a
-goal, constraints, and a desired output format, or is it 3–5 vague words
-("viết email", "sửa code này")? Is background context supplied — who reads
-it, what it is for, a reference example — or left for the AI to guess? The
-average length/detail of the first message in each conversation is a crude
-indicator, but it correlates well with how much thinking happened before
-asking.
+**Group 1 — Input Quality.** Does the request state a goal, constraints, and
+a desired output format, or is it 3–5 vague words ("write an email", "fix
+this code")? Is background context supplied — who reads it, what it is for,
+a reference example — or left for the AI to guess? The average length/detail
+of the first message in each conversation is a crude indicator, but it
+correlates well with how much thinking happened before asking.
 
-**Nhóm 2 — Tương tác & lặp (Interaction Depth).** After the first answer,
-does the user dig deeper, ask for the reasoning, or stop right there? How
-often do they push back — "tại sao lại vậy", "cái này có chắc không", "thử
-cách khác xem" — a sign of active critical thinking? Average rounds per
-conversation: one turn on a deep task suggests grab-and-go; consistently
-very high turns can instead mean the AI kept misunderstanding, which is also
-worth flagging but has a different cause and a different fix.
+**Group 2 — Interaction Depth.** After the first answer, does the user dig
+deeper, ask for the reasoning, or stop right there? How often do they push
+back — "why that way", "are you sure about this", "try a different approach"
+— a sign of active critical thinking? Average rounds per conversation: one
+turn on a deep task suggests grab-and-go; consistently very high turns can
+instead mean the AI kept misunderstanding, which is also worth flagging but
+has a different cause and a different fix.
 
-**Nhóm 3 — Xác minh & tư duy phản biện (Verification).** Does the user check
-what the AI produced — find an outside source, run the code, cross-check the
-numbers — or accept all of it? How often do they catch the AI being wrong or
-misunderstanding? If that is close to never across many sessions, the likely
-explanation is "not checking carefully", not "the AI is always right". Also
-watch for output taken as-is: no edits, no follow-up discussion after a
-result arrives.
+**Group 3 — Verification.** Does the user check what the AI produced — find
+an outside source, run the code, cross-check the numbers — or accept all of
+it? How often do they catch the AI being wrong or misunderstanding? If that
+is close to never across many sessions, the likely explanation is "not
+checking carefully", not "the AI is always right". Also watch for output
+taken as-is: no edits, no follow-up discussion after a result arrives.
 
-**Nhóm 4 — Học & chuyển giao kỹ năng (Skill Transfer).** Does the user ask
-"why / how" in order to do it themselves next time, or only to get the
-artifact and use it now? Are the last ~20 sessions the same request shape
-asked the same way, with no improvement? Compare prompt quality and
-specificity in the earliest window versus the most recent one within the
-same topic — that comparison is the strongest available evidence of whether
-the user is learning from the AI or just consuming it.
+**Group 4 — Skill Transfer.** Does the user ask "why / how" in order to do
+it themselves next time, or only to get the artifact and use it now? Are the
+last ~20 sessions the same request shape asked the same way, with no
+improvement? Compare prompt quality and specificity in the earliest window
+versus the most recent one within the same topic — that comparison is the
+strongest available evidence of whether the user is learning from the AI or
+just consuming it.
 
-**Nhóm 5 — Phù hợp mục đích (Context Fit).** This group exists to prevent
-misjudging the other four. Classify every session before applying them, and
-apply "should have gone deeper / should have learned" only to deep tasks. A
-quick lookup answered in a single turn is correct behaviour and must never
-be scored down for it.
+**Group 5 — Context Fit.** This group exists to prevent misjudging the other
+four. Classify every session before applying them, and apply "should have
+gone deeper / should have learned" only to deep tasks. A quick lookup
+answered in a single turn is correct behaviour and must never be scored down
+for it.
 
 ## Privacy
 
