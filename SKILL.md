@@ -20,6 +20,9 @@ the user and the AI as a plain transcript. Tool calls, tool results,
 sidechains, thinking blocks and CLI plumbing are all dropped — only what was
 actually said survives.
 
+Run it from this skill's base directory (paths here are relative to it; the
+working directory is usually the user's project instead):
+
 ```bash
 python3 scripts/extract_conversations.py --since-days 30 --out /tmp/chat.txt
 ```
