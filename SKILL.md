@@ -15,40 +15,47 @@ must be backed by a quote from the user's own history.
 ### 1. Pull the conversations
 
 `scripts/extract_conversations.py` is the only script. It reads
-`~/.claude/projects/<project>/<session>.jsonl` and emits clean JSON with
-tool results, sidechains, thinking blocks and CLI plumbing stripped out —
-only real human and assistant turns survive.
+`~/.claude/projects/<project>/<session>.jsonl` and prints the chat between
+the user and the AI as a plain transcript. Tool calls, tool results,
+sidechains, thinking blocks and CLI plumbing are all dropped — only what was
+actually said survives.
 
 ```bash
-python3 scripts/extract_conversations.py --since-days 30 --out /tmp/conv.json
+python3 scripts/extract_conversations.py --since-days 30 --out /tmp/chat.txt
 ```
 
 Flags: `--project <substring>` to scope to one codebase, `--limit N` for the
 N most recent sessions, `--min-user-turns 2` to drop stubs, `--since-days N`
-for the time window, `--preview-chars` / `--max-user-chars` to control how
-much text is kept per turn.
+for the time window, `--user-only` to see just the user's prompts,
+`--max-user-chars` / `--max-ai-chars` to control clipping.
 
 Aim for 15–30 sessions. If the window yields fewer than ~8, widen it
-(`--since-days 90`). Write extracts to a scratchpad, never into the user's
-repo.
+(`--since-days 90`). Write the transcript to a scratchpad, never into the
+user's repo.
 
 ### 2. Read the sessions
 
-Read `/tmp/conv.json` — the first user turn of every session, and the full
-turn sequence of at least 8 of them (the shortest, the longest, and a spread
-in between). If the file is large, read the first prompts of all sessions
-first to build the map, then open the interesting ones.
+Each session in the transcript is a `====` header (project, date, user turn
+count) followed by `--- USER ---` / `--- AI ---` turns in order.
+
+Start with `--user-only` to see every prompt the user wrote and build the
+map. Then read the full dialogue of at least 8 sessions — the shortest, the
+longest, and a spread in between.
 
 What to extract per session as you read:
 
 - the first prompt, verbatim (this is the main evidence for Nhóm 1)
 - how many human turns followed, and what kind they were: refinement,
   challenge, correction, or just "ok, next"
-- whether the user ever checked the output — pasted an error back, asked for
-  a source, asked for a test run (`tool_calls` on assistant turns shows what
-  was actually executed: test/build/lint commands are a verification signal)
+- whether the user ever checked the output — pasted an error or wrong result
+  back, asked for a source, asked for it to be tested, contradicted the AI
+  with a fact
 - whether the user asked *why/how*, or only *what*
 - what type of task it was (see Nhóm 5)
+
+Read the AI's replies too, not only the prompts. A reply full of clarifying
+questions means the prompt was thin; a reply the user accepts verbatim and
+never returns to is the main evidence for Nhóm 3.
 
 ### 3. Classify before you score (Nhóm 5 first)
 

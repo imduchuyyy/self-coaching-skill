@@ -37,9 +37,9 @@ prompt — that belongs to Nhóm 1.
 
 ## Nhóm 3 — Xác minh & tư duy phản biện (Verification)
 
-Evidence of checking: pasting an error/output back, asking for a source,
-asking for a test run, tests/builds/lints actually executed, the user
-contradicting the AI with a fact.
+Evidence of checking, all visible in the dialogue: pasting an error or a
+wrong result back, asking for a source, asking for the change to be tested,
+reporting what happened when they ran it, contradicting the AI with a fact.
 
 | Score | What it looks like |
 |---|---|
